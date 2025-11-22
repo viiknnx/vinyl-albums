@@ -1,74 +1,92 @@
 <style>
-/* Reset obrigatório para anular estilos externos */
+/* Reset básico para elementos internos da galeria */
 #vinyl-gallery * {
   all: unset;
 }
 
 /* Container principal da galeria */
 #vinyl-gallery {
-  all: initial !important;
-  width: 100% !important;
-  height: 230px !important;
-  margin: 30px 0 !important;
-  display: flex !important;
-  flex-direction: row !important;
-  position: relative !important;
-  margin-left: -6px !important;
+  /* Mantém initial para anular herança (útil se o reset * for muito agressivo) */
+  all: initial; 
+  width: 100%;
+  height: 230px;
+  margin: 30px 0;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  /* Ajuste de margem para compensar o padding/borda do item */
+  margin-left: -6px; 
 }
 
-/* Item de Vinil individual */
-#vinyl-gallery .vinyl {
-  all: unset !important;
-  perspective: 500px !important;
-  width: 18px !important;
-  transition: width 0.5s !important;
-  /* Garante que o item fique na parte inferior */
+/* Container de cada vinil/álbum */
+#vinyl-gallery .vinyl-group {
+  position: relative;
+  /* Define a perspectiva para o efeito 3D */
+  perspective: 500px; 
+  /* Largura inicial para o efeito de "pilha" */
+  width: 18px; 
+  transition: width 0.5s;
+  /* Alinha os itens na parte inferior */
   align-self: flex-end; 
 }
 
-/* Expansão do Vinil ao passar o mouse */
-#vinyl-gallery .vinyl:hover {
-  width: 148px !important;
+/* Hover no grupo de vinil (expande a largura) */
+#vinyl-gallery .vinyl-group:hover {
+  width: 148px;
 }
 
-/* Imagem da Capa */
+/* A imagem da capa do vinil */
 #vinyl-gallery img {
-  all: unset !important;
-  transition: transform 0.5s, width 0.5s, height 0.5s, margin-top 0.5s !important;
-  width: 180px !important;
-  height: 180px !important;
-  /* Efeito 3D padrão */
-  transform: rotateX(0deg) rotateY(25deg) !important;
-  transform-style: preserve-3d !important;
-  border-radius: 4px !important;
-  border: 2px solid rgba(0, 0, 0, 0.1) !important;
-  object-fit: cover !important;
+  /* Reseta a imagem */
+  all: unset; 
+  transition: transform 0.5s, width 0.5s, height 0.5s, margin-top 0.5s;
+  width: 180px;
+  height: 180px;
+  /* Rotação 3D inicial */
+  transform: rotateX(0deg) rotateY(25deg); 
+  transform-style: preserve-3d;
+  border-radius: 4px;
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  object-fit: cover;
+  /* Garante que a imagem está posicionada corretamente no group */
+  display: block; 
 }
 
-/* Efeito 3D e tamanho no hover */
-#vinyl-gallery .vinyl:hover img {
-  transform: rotateX(0deg) rotateY(10deg) !important;
-  width: 188px !important;
-  height: 188px !important;
-  margin-top: -2px !important;
+/* Efeito de hover na imagem */
+#vinyl-gallery .vinyl-group:hover img {
+  /* Rotação 3D no hover */
+  transform: rotateX(0deg) rotateY(10deg); 
+  width: 188px;
+  height: 188px;
+  margin-top: -2px;
 }
 
-/* Título do Álbum (Escondido por padrão) */
+/* Título do Álbum */
 #vinyl-gallery .title {
   color: #000000;
   display: block;
+  /* Esconde o título por padrão */
+  opacity: 0; 
   visibility: hidden;
   position: absolute;
   bottom: 0px;
   text-align: center;
   width: 100%;
   padding-left: 6px;
-  /* Ajuste para que o texto não "quebre" */
-  white-space: nowrap; 
+  transition: opacity 0.3s, visibility 0.3s;
+  pointer-events: none; /* Garante que não interfira no hover */
 }
 
-/* REGRAS CRUCIAIS: Mostra o Título imediatamente após o Vinil em hover */
-#vinyl-gallery .vinyl:hover + .title {
+/* Mostra o título quando o grupo de vinil está em hover */
+#vinyl-gallery .vinyl-group:hover .title {
   visibility: visible;
+  opacity: 1;
 }
+
+/* Observação sobre o CSS:
+  1. O seletor '.vinyl' foi substituído por '.vinyl-group' no HTML 
+     para agrupar img e title.
+  2. Ajustei a regra de visibilidade do título para funcionar 
+     com a nova estrutura de agrupamento.
+*/
 </style>
