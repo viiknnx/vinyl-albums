@@ -1,184 +1,160 @@
 <style>
-/* Reset básico para elementos internos da galeria */
-#vinyl-gallery * {
-  all: unset;
-}
+  #vinyl-gallery * {
+    all: unset;
+  }
 
-/* Container principal da galeria */
-#vinyl-gallery {
-  /* Mantém initial para anular herança (útil se o reset * for muito agressivo) */
-  all: initial; 
-  width: 100%;
-  height: 230px;
-  margin: 30px 0;
-  display: flex;
-  flex-direction: row;
-  position: relative;
-  /* Ajuste de margem para compensar o padding/borda do item */
-  margin-left: -6px; 
-}
+  #vinyl-gallery {
+    all: initial !important;
+    width: 100% !important;
+    height: 230px !important;
+    margin: 30px 0 !important;
+    display: flex !important;
+    flex-direction: row !important;
+    position: relative !important;
+    margin-left: -6px !important;
+  }
 
-/* Container de cada vinil/álbum */
-#vinyl-gallery .vinyl-group {
-  position: relative;
-  /* Define a perspectiva para o efeito 3D */
-  perspective: 500px; 
-  /* Largura inicial para o efeito de "pilha" */
-  width: 18px; 
-  transition: width 0.5s;
-  /* Alinha os itens na parte inferior */
-  align-self: flex-end; 
-}
+  /* Cada vinil */
+  #vinyl-gallery .vinyl {
+    all: unset !important;
+    perspective: 500px !important;
+    width: 18px !important;
+    transition: width 0.5s !important;
+    position: relative;
+  }
 
-/* Hover no grupo de vinil (expande a largura) */
-#vinyl-gallery .vinyl-group:hover {
-  width: 148px;
-}
+  #vinyl-gallery .vinyl:hover {
+    width: 148px !important;
+  }
 
-/* A imagem da capa do vinil */
-#vinyl-gallery img {
-  /* Reseta a imagem */
-  all: unset; 
-  transition: transform 0.5s, width 0.5s, height 0.5s, margin-top 0.5s;
-  width: 180px;
-  height: 180px;
-  /* Rotação 3D inicial */
-  transform: rotateX(0deg) rotateY(25deg); 
-  transform-style: preserve-3d;
-  border-radius: 4px;
-  border: 2px solid rgba(0, 0, 0, 0.1);
-  object-fit: cover;
-  /* Garante que a imagem está posicionada corretamente no group */
-  display: block; 
-}
+  /* Imagens */
+  #vinyl-gallery .vinyl img {
+    all: unset !important;
+    transition: transform 0.5s, width 0.5s, height 0.5s, margin-top 0.5s !important;
+    width: 180px !important;
+    height: 180px !important;
+    transform: rotateX(0deg) rotateY(25deg) !important;
+    transform-style: preserve-3d !important;
+    border-radius: 4px !important;
+    border: 2px solid rgba(0, 0, 0, 0.1) !important;
+    object-fit: cover !important;
+  }
 
-/* Efeito de hover na imagem */
-#vinyl-gallery .vinyl-group:hover img {
-  /* Rotação 3D no hover */
-  transform: rotateX(0deg) rotateY(10deg); 
-  width: 188px;
-  height: 188px;
-  margin-top: -2px;
-}
+  #vinyl-gallery .vinyl:hover img {
+    transform: rotateX(0deg) rotateY(10deg) !important;
+    width: 188px !important;
+    height: 188px !important;
+    margin-top: -2px !important;
+  }
 
-/* Título do Álbum */
-#vinyl-gallery .title {
-  color: #000000;
-  display: block;
-  /* Esconde o título por padrão */
-  opacity: 0; 
-  visibility: hidden;
-  position: absolute;
-  bottom: 0px;
-  text-align: center;
-  width: 100%;
-  padding-left: 6px;
-  transition: opacity 0.3s, visibility 0.3s;
-  pointer-events: none; /* Garante que não interfira no hover */
-}
+  /* Títulos */
+  #vinyl-gallery .title {
+    color: #000;
+    position: absolute;
+    bottom: -20px;
+    width: 100%;
+    text-align: center;
+    font-size: 12px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
 
-/* Mostra o título quando o grupo de vinil está em hover */
-#vinyl-gallery .vinyl-group:hover .title {
-  visibility: visible;
-  opacity: 1;
-}
-
-/* Observação sobre o CSS:
-  1. O seletor '.vinyl' foi substituído por '.vinyl-group' no HTML 
-     para agrupar img e title.
-  2. Ajustei a regra de visibilidade do título para funcionar 
-     com a nova estrutura de agrupamento.
-*/
+  #vinyl-gallery .vinyl:hover .title {
+    opacity: 1;
+  }
 </style>
 
 <div id="vinyl-gallery">
-  <div class="vinyl">
-    <img src="ALBUMCOVERSOURCE"/>
-  </div>
-  <div class="title">Artist - Album</div>
 
   <div class="vinyl">
-    <img src="ALBUMCOVERSOURCECODE"/>
+    <img src="ALBUMCOVERSOURCE" />
+    <div class="title">Artist - Album</div>
   </div>
-  <div class="title">Artist - Album</div>
 
   <div class="vinyl">
-    <img src="ALBUMCOVERSOURCECODE"/>
+    <img src="ALBUMCOVERSOURCECODE" />
+    <div class="title">Artist - Album</div>
   </div>
-  <div class="title">Artist - Album</div>
 
   <div class="vinyl">
-    <img src="ALBUMCOVERSOURCECODE"/>
+    <img src="ALBUMCOVERSOURCECODE" />
+    <div class="title">Artist - Album</div>
   </div>
-  <div class="title">Artist - Album</div>
 
   <div class="vinyl">
-    <img src="ALBUMCOVERSOURCECODE"/>
+    <img src="ALBUMCOVERSOURCECODE" />
+    <div class="title">Artist - Album</div>
   </div>
-  <div class="title">Artist - Album</div>
 
   <div class="vinyl">
-    <img src="ALBUMCOVERSOURCECODE"/>
+    <img src="ALBUMCOVERSOURCECODE" />
+    <div class="title">Artist - Album</div>
   </div>
-  <div class="title">Artist - Album</div>
 
   <div class="vinyl">
-    <img src="ALBUMCOVERSOURCECODE"/>
+    <img src="ALBUMCOVERSOURCECODE" />
+    <div class="title">Artist - Album</div>
   </div>
-  <div class="title">Artist - Album</div>
 
   <div class="vinyl">
-    <img src="ALBUMCOVERSOURCECODE"/>
+    <img src="ALBUMCOVERSOURCECODE" />
+    <div class="title">Artist - Album</div>
   </div>
-  <div class="title">Artist - Album</div>
 
   <div class="vinyl">
-    <img src="ALBUMCOVERSOURCECODE"/>
+    <img src="ALBUMCOVERSOURCECODE" />
+    <div class="title">Artist - Album</div>
   </div>
-  <div class="title">Artist - Album</div>
 
   <div class="vinyl">
-    <img src="ALBUMCOVERSOURCECODE"/>
+    <img src="ALBUMCOVERSOURCECODE" />
+    <div class="title">Artist - Album</div>
   </div>
-  <div class="title">Artist - Album</div>
 
   <div class="vinyl">
-    <img src="ALBUMCOVERSOURCECODE"/>
+    <img src="ALBUMCOVERSOURCECODE" />
+    <div class="title">Artist - Album</div>
   </div>
-  <div class="title">Artist - Album</div>
 
   <div class="vinyl">
-    <img src="ALBUMCOVERSOURCECODE"/>
+    <img src="ALBUMCOVERSOURCECODE" />
+    <div class="title">Artist - Album</div>
   </div>
-  <div class="title">Artist - Album</div>
 
   <div class="vinyl">
-    <img src="ALBUMCOVERSOURCECODE"/>
+    <img src="https://e.snmc.io/i/300/w/fd9304595548ae4896ea8586f5b04cb6/9808371" />
+    <div class="title">LANA DEL REY - LUST FOR LIFE</div>
   </div>
-  <div class="title">Artist - Album</div>
 
   <div class="vinyl">
-    <img src="ALBUMCOVERSOURCECODE"/>
+    <img src="https://e.snmc.io/i/300/w/48caa351e5dd305d649c0c646774a4af/5805700" />
+    <div class="title">LANA DEL REY - HONEYMOON</div>
   </div>
-  <div class="title">Artist - Album</div>
 
   <div class="vinyl">
-    <img src="ALBUMCOVERSOURCECODE"/>
+    <img src="" />
+    <div class="title">LANA DEL REY - ULTRAVIOLENCE</div>
   </div>
-  <div class="title">Artist - Album</div>
 
   <div class="vinyl">
-    <img src="ALBUMCOVERSOURCECODE"/>
+    <img src="https://e.snmc.io/i/300/w/d4a0c729da4e379f47cff3daca6c2d99/2074981" />
+    <div class="title">RED HOT CHILI PEPPERS - CALIFORNICATION</div>
   </div>
-  <div class="title">Artist - Album</div>
 
   <div class="vinyl">
-    <img src="ALBUMCOVERSOURCECODE"/>
+    <img src="https://e.snmc.io/i/300/w/b0fe96e5767f106633c973375840cebe/12026991" />
+    <div class="title">NIRVANA - IN UTERO</div>
   </div>
-  <div class="title">Artist - Album</div>
 
   <div class="vinyl">
-    <img src="ALBUMCOVERSOURCECODE"/>
+    <img src="https://e.snmc.io/i/300/w/8774ffdca3e5c4af848d9fd6dde10eeb/5094206" />
+    <div class="title">METALLICA - METALLICA (REMASTERED DELUXE BOX SET)</div>
   </div>
-  <div class="title">Artist - Album</div>
+
+  <div class="vinyl">
+    <img src="https://e.snmc.io/i/300/w/303bc07bd468913933577b27c7c9629d/10387102" />
+    <div class="title">LANA DEL REY - ULTRAVIOLENCE</div>
+  </div>
+
 </div>
